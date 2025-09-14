@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📝 EcoMission Reviews</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0fff4, #ccf5e3);
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 40px 20px;
+      animation: slideUp 1s ease-out;
+      text-align: center;
+    }
+
+    h1 {
+      color: #166534;
+    }
+
+    textarea {
+      width: 90%;
+      height: 120px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 20px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #166534;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #14532d;
+    }
+
+    .reviews {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .review-item {
+      background-color: #e0f7e9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #14532d;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="portfolio.html">📁 Portfolio</a>
+      <a href="task.html">✅ Tasks</a>
+    </nav>
+    <h1>📝 Share Your Thoughts</h1>
+    <textarea id="reviewInput" placeholder="Write your review or feedback here... 😊"></textarea>
+    <br>
+    <button onclick="submitReview()">Submit Review</button>
+    <div class="reviews" id="reviewList"></div>
+  </div>
+  <nav>
+  <a href="index.html">📁 Portfolio</a>
+  <a href="tasks.html">✅ Tasks</a>
+
+</nav>
+
+
+  <script>
+    function submitReview() {
+      const input = document.getElementById("reviewInput");
+      const list = document.getElementById("reviewList");
+      const review = input.value.trim();
+
+      if (review) {
+        const div = document.createElement("div");
+        div.className = "review-item";
+        div.textContent = "💬 " + review;
+        list.prepend(div);
+        input.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
