@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoMission Tasks 🌱</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f0fff4, #ccf5e3);
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 40px 20px;
+      animation: slideUp 1s ease-out;
+      text-align: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: #166534;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #d9f8e8;
+      margin: 15px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      position: relative;
+    }
+
+    li:hover {
+      background-color: #bdf2d6;
+      transform: scale(1.02);
+    }
+
+    .task-complete {
+      text-decoration: line-through;
+      background-color: #b5f5c8 !important;
+    }
+
+    .task-btn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px 10px;
+      border: none;
+      background-color: #166534;
+      color: white;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .task-btn:hover {
+      background-color: #14532d;
+    }
+
+    button.main-btn {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      background-color: #166534;
+      color: white;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.main-btn:hover {
+      background-color: #14532d;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌿 Daily Eco Tasks (Day 1 - 7) 🌎</h1>
+    <ul id="taskList">
+      <li><strong>Day 1:</strong>♻️Segregate your household waste into dry and wet waste. <button class="task-btn" onclick="markTaskComplete(this)">Complete</button></li>
+      <li><strong>Day 2:</strong>🌊Save water — fix leaks and turn off taps while brushing. <button class="task-btn" onclick="markTaskComplete(this)">Complete</button></li>
+      <li><strong>Day 3:</strong>🌳Plant a tree or water a plant near your home. <button class="task-btn" onclick="markTaskComplete(this)">Complete</button></li>
+      <li><strong>Day 4:</strong>🚯Avoid single-use plastics; use reusable bags and bottles. <button class="task-btn" onclick="markTaskComplete(this)">Complete</button></li>
+      <li><strong>Day 5:</strong>💡Turn off electrical devices when not in use to save energy. <button class="task-btn" onclick="markTaskComplete(this)">Complete</button></li>
+      <li><strong>Day 6:</strong>🚴‍♂️Use a bicycle or walk instead of using a vehicle. <button class="task-btn" onclick="markTaskComplete(this)">Complete</button></li>
+      <li><strong>Day 7:</strong>📢Spread awareness — talk to a friend or post about conservation. <button class="task-btn" onclick="markTaskComplete(this)">Complete</button></li>
+    </ul>
+    <button class="main-btn" onclick="completeTasks()">✅ Mark All as Complete</button>
+    <button class="main-btn" onclick="resetTasks()">🔄 Reset Tasks</button>
+  </div>
+  <nav>
+  <a href="index.html">📁 Portfolio</a>
+  <a href="review.html">📝 Reviews</a>
+</nav>
+
+
+  <script>
+    function markTaskComplete(button) {
+      const li = button.parentElement;
+      li.classList.add('task-complete');
+    }
+
+    function completeTasks() {
+      const tasks = document.querySelectorAll('#taskList li');
+      tasks.forEach(task => {
+        task.classList.add('task-complete');
+      });
+    }
+
+    function resetTasks() {
+      const tasks = document.querySelectorAll('#taskList li');
+      tasks.forEach(task => {
+        task.classList.remove('task-complete');
+      });
+    }
+  </script>
+</body>
+</html>
